@@ -61,6 +61,7 @@ const BUSINESS_EMAIL = "";
 // ==========================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
+  initPagePreloader();
   initDynamicYear();
   initStickyHeader();
   initMobileNavigation();
@@ -72,6 +73,36 @@ document.addEventListener("DOMContentLoaded", () => {
   initFloatingBackToTop();
   initScrollAnimations();
 });
+
+// Page Preloader (Smooth Minimal Architectural Reveal)
+function initPagePreloader() {
+  const preloader = document.getElementById("pagePreloader");
+  if (!preloader) return;
+
+  // If user prefers reduced motion, remove preloader immediately
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    preloader.style.display = "none";
+    return;
+  }
+
+  let dismissed = false;
+  const dismiss = () => {
+    if (dismissed) return;
+    dismissed = true;
+    preloader.classList.add("fade-out");
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 550);
+  };
+
+  // Dismiss on window complete load
+  window.addEventListener("load", () => {
+    setTimeout(dismiss, 200);
+  });
+
+  // Safety fallback timeout so access is never delayed
+  setTimeout(dismiss, 650);
+}
 
 // Dynamic Copyright Year
 function initDynamicYear() {

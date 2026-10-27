@@ -88,6 +88,17 @@
 </head>
 <body>
 
+  <!-- Page Preloader (Subtle Luxury Reveal) -->
+  <div class="page-preloader" id="pagePreloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <div class="preloader-brand">SLR INTERIORS</div>
+      <div class="preloader-tagline">Custom Carpentry &amp; Interior Design</div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Accessible Skip to Main Content Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -132,14 +143,14 @@
   <div class="mobile-backdrop" id="mobileBackdrop"></div>
   <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
     <div class="mobile-nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#services">Our Services</a>
-      <a href="#gallery">Design Gallery</a>
-      <a href="#why-us">Why Choose Us</a>
-      <a href="#process">Work Process</a>
-      <a href="#areas">Service Areas</a>
-      <a href="#contact">Contact</a>
+      <a href="#home" style="--i: 1">Home</a>
+      <a href="#about" style="--i: 2">About Us</a>
+      <a href="#services" style="--i: 3">Our Services</a>
+      <a href="#gallery" style="--i: 4">Design Gallery</a>
+      <a href="#why-us" style="--i: 5">Why Choose Us</a>
+      <a href="#process" style="--i: 6">Work Process</a>
+      <a href="#areas" style="--i: 7">Service Areas</a>
+      <a href="#contact" style="--i: 8">Contact</a>
     </div>
     
     <div class="mobile-nav-footer">
@@ -166,25 +177,26 @@
          HERO SECTION — FULL-WIDTH BACKGROUND PHOTOGRAPH
          ======================================================================== -->
     <section class="hero-section" id="home" aria-label="Hero Section">
+      <div class="hero-bg-zoom" aria-hidden="true"></div>
       <div class="hero-overlay"></div>
       <div class="container hero-container">
-        <div class="hero-content reveal">
+        <div class="hero-content">
           
-          <div class="hero-eyebrow">
+          <div class="hero-eyebrow hero-animate-1">
             <span class="hero-eyebrow-dot"></span>
             CUSTOM CARPENTRY &amp; INTERIOR DESIGN
           </div>
 
-          <h1 class="hero-title">
+          <h1 class="hero-title hero-animate-2">
             <span>Beautiful Interiors.</span>
             <span class="highlight">Crafted for Your Home.</span>
           </h1>
 
-          <p class="hero-description">
+          <p class="hero-description hero-animate-3">
             Customized cupboards, kitchen units, bedroom interiors, TV units, wall panels, and personalized furniture solutions designed around your space.
           </p>
 
-          <div class="hero-ethos">
+          <div class="hero-ethos hero-animate-4">
             <div class="hero-ethos-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span>Personalized Designs</span>
@@ -199,8 +211,8 @@
             </div>
           </div>
 
-          <div class="hero-actions">
-            <a href="#quote-section" class="btn btn-primary">
+          <div class="hero-actions hero-animate-5">
+            <a href="#quote-section" class="btn btn-primary btn-shine">
               REQUEST A QUOTE
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
@@ -210,7 +222,7 @@
             </a>
           </div>
 
-          <div class="hero-quick-contact">
+          <div class="hero-quick-contact hero-animate-6">
             <a href="tel:7569888527" class="hero-contact-link" aria-label="Call SLR INTERIORS directly">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               <span>Call: 7569888527</span>
