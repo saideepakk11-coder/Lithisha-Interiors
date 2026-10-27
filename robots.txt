@@ -1,0 +1,6 @@
+# robots.txt for SLR INTERIORS
+User-agent: *
+Allow: /
+
+# Sitemap URL (Update domain once finalized)
+Sitemap: https://slrinteriors.com/sitemap.xml
