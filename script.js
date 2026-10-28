@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initServiceQuoteSelection();
   initGalleryFiltering();
+  initFooterServiceGalleryLinks();
   initGalleryLightbox();
   initQuotationForm();
   initEmailIntegration();
@@ -127,8 +128,12 @@ function initStickyHeader() {
   const handleScroll = () => {
     const scrollPos = window.scrollY;
 
-    // Header transparency toggle
-    if (scrollPos > 60) {
+    // Header transparency toggle - contracts smoothly to 80% island only after moving past the hero section
+    const heroEl = document.getElementById("home");
+    const heroHeight = heroEl ? heroEl.offsetHeight : 650;
+    const triggerThreshold = Math.max(140, Math.min(320, heroHeight * 0.4));
+
+    if (scrollPos > triggerThreshold) {
       header.classList.add("scrolled");
       header.classList.remove("transparent");
     } else {
@@ -337,38 +342,122 @@ function initServiceQuoteSelection() {
 }
 
 // ==========================================================================
-// 6. GALLERY FILTERING
+// 7. GALLERY FILTERING (Smooth Staggered Category Switching)
 // ==========================================================================
 
-function initGalleryFiltering() {
+function filterGallery(filterValue) {
   const filterButtons = document.querySelectorAll(".filter-btn");
   const galleryItems = document.querySelectorAll(".gallery-item");
 
   if (!filterButtons.length || !galleryItems.length) return;
 
+  // Update active filter button state
+  filterButtons.forEach((b) => {
+    if (b.getAttribute("data-filter") === filterValue) {
+      b.classList.add("active");
+      try {
+        b.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      } catch (err) {}
+    } else {
+      b.classList.remove("active");
+    }
+  });
+
+  // Smooth staggered reveal animation for matching items
+  let matchIndex = 0;
+  galleryItems.forEach((item) => {
+    const itemCategory = item.getAttribute("data-category");
+    if (filterValue === "all" || itemCategory === filterValue) {
+      item.classList.remove("hidden");
+      item.style.opacity = "0";
+      item.style.transform = "translateY(22px) scale(0.96)";
+
+      const delay = Math.min(matchIndex * 50 + 20, 360);
+      setTimeout(() => {
+        item.style.transition = "opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)";
+        item.style.opacity = "1";
+        item.style.transform = "translateY(0) scale(1)";
+      }, delay);
+
+      matchIndex++;
+    } else {
+      item.classList.add("hidden");
+      item.style.opacity = "0";
+      item.style.transform = "scale(0.95)";
+    }
+  });
+}
+
+function initGalleryFiltering() {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  if (!filterButtons.length) return;
+
   filterButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      // Update active filter button
-      filterButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
       const filterValue = btn.getAttribute("data-filter");
+      filterGallery(filterValue);
+    });
+  });
+}
 
-      galleryItems.forEach((item) => {
-        const itemCategory = item.getAttribute("data-category");
-        if (filterValue === "all" || itemCategory === filterValue) {
-          item.classList.remove("hidden");
-          item.style.opacity = "0";
-          item.style.transform = "scale(0.96)";
-          setTimeout(() => {
-            item.style.transition = "opacity 0.4s ease, transform 0.4s ease";
-            item.style.opacity = "1";
-            item.style.transform = "scale(1)";
-          }, 20);
-        } else {
-          item.classList.add("hidden");
+// ==========================================================================
+// 8. FOOTER SERVICES DIRECT GALLERY REDIRECTION (e.g. Kitchen Units -> Kitchen Images)
+// ==========================================================================
+
+function initFooterServiceGalleryLinks() {
+  const footerLinks = document.querySelectorAll("[data-gallery-filter]");
+  const gallerySection = document.getElementById("gallery");
+
+  footerLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const filterCategory = link.getAttribute("data-gallery-filter");
+
+      if (gallerySection) {
+        // Close mobile drawer if currently open
+        const mobileDrawer = document.getElementById("mobileDrawer");
+        const mobileBackdrop = document.getElementById("mobileBackdrop");
+        const mobileToggle = document.getElementById("mobileToggle");
+        if (mobileDrawer && mobileDrawer.classList.contains("open")) {
+          mobileDrawer.classList.remove("open");
+          if (mobileBackdrop) mobileBackdrop.classList.remove("open");
+          if (mobileToggle) {
+            mobileToggle.classList.remove("active");
+            mobileToggle.setAttribute("aria-expanded", "false");
+          }
+          document.body.style.overflow = "";
         }
-      });
+
+        const isMobile = window.innerWidth <= 991;
+        const headerOffset = isMobile ? 68 : 84;
+        const galleryRect = gallerySection.getBoundingClientRect();
+        const galleryTop = galleryRect.top + window.pageYOffset;
+
+        window.scrollTo({
+          top: Math.max(0, galleryTop - headerOffset),
+          behavior: "smooth"
+        });
+
+        // Filter gallery to matching category (e.g. 'kitchen')
+        if (filterCategory) {
+          setTimeout(() => {
+            filterGallery(filterCategory);
+
+            // Highlight all matching gallery cards with a subtle luxury pulse
+            const matchingItems = document.querySelectorAll(`.gallery-item[data-category="${filterCategory}"]`);
+            matchingItems.forEach((item) => {
+              item.classList.remove("highlight-card-pulse");
+              void item.offsetWidth; // Force DOM reflow
+              item.classList.add("highlight-card-pulse");
+            });
+          }, 400);
+        }
+
+        // Update URL hash without abrupt jumps
+        if (window.history && window.history.pushState) {
+          window.history.pushState(null, "", `#gallery-${filterCategory}`);
+        }
+      }
     });
   });
 }
