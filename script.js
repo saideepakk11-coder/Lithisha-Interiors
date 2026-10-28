@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDynamicYear();
   initStickyHeader();
   initMobileNavigation();
+  initSmoothScroll();
   initServiceQuoteSelection();
   initGalleryFiltering();
   initGalleryLightbox();
@@ -147,7 +148,10 @@ function initStickyHeader() {
 
     navLinks.forEach((link) => {
       link.classList.remove("active");
-      if (link.getAttribute("href") === `#${currentSectionId}`) {
+      const linkHref = link.getAttribute("href");
+      if (linkHref === `#${currentSectionId}` || 
+         (currentSectionId === "contact" && (linkHref === "#contact" || linkHref === "#quote-section")) ||
+         (currentSectionId === "quote-section" && (linkHref === "#contact" || linkHref === "#quote-section"))) {
         link.classList.add("active");
       }
     });
@@ -213,7 +217,75 @@ function initMobileNavigation() {
 }
 
 // ==========================================================================
-// 5. SERVICES AUTO-SELECTION & SMOOTH SCROLL TO QUOTE FORM
+// 5. UNIVERSAL SMOOTH SCROLL (Handles Contact & Section Redirection)
+// ==========================================================================
+
+function initSmoothScroll() {
+  const internalLinks = document.querySelectorAll('a[href^="#"]');
+  const mobileDrawer = document.getElementById("mobileDrawer");
+  const mobileBackdrop = document.getElementById("mobileBackdrop");
+  const mobileToggle = document.getElementById("mobileToggle");
+
+  internalLinks.forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const hash = this.getAttribute("href");
+      if (!hash || hash === "#") return;
+
+      const targetId = hash.slice(1);
+      let targetElement = document.getElementById(targetId);
+
+      // Support aliases between contact and quote-section
+      if (!targetElement && targetId === "contact") {
+        targetElement = document.getElementById("quote-section");
+      } else if (!targetElement && targetId === "quote-section") {
+        targetElement = document.getElementById("contact");
+      }
+
+      if (targetElement) {
+        e.preventDefault();
+
+        // Close mobile drawer if currently open
+        if (mobileDrawer && mobileDrawer.classList.contains("open")) {
+          mobileDrawer.classList.remove("open");
+          if (mobileBackdrop) mobileBackdrop.classList.remove("open");
+          if (mobileToggle) {
+            mobileToggle.classList.remove("active");
+            mobileToggle.setAttribute("aria-expanded", "false");
+          }
+          document.body.style.overflow = "";
+        }
+
+        // Calculate offset position for floating island header
+        const isMobile = window.innerWidth <= 991;
+        const headerOffset = isMobile ? 68 : 84;
+        const elementRect = targetElement.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        const scrollTarget = Math.max(0, absoluteElementTop - headerOffset);
+
+        window.scrollTo({
+          top: scrollTarget,
+          behavior: "smooth"
+        });
+
+        // If target is contact/quote, gently focus the full name field
+        if (targetId === "contact" || targetId === "quote-section") {
+          setTimeout(() => {
+            const nameField = document.getElementById("full-name");
+            if (nameField) nameField.focus({ preventScroll: true });
+          }, 500);
+        }
+
+        // Update history URL hash cleanly without abrupt jump
+        if (window.history && window.history.pushState) {
+          window.history.pushState(null, "", hash);
+        }
+      }
+    });
+  });
+}
+
+// ==========================================================================
+// 6. SERVICES AUTO-SELECTION & SMOOTH SCROLL TO QUOTE FORM
 // ==========================================================================
 
 function initServiceQuoteSelection() {
