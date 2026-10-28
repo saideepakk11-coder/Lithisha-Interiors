@@ -129,10 +129,8 @@ function initStickyHeader() {
   const handleScroll = () => {
     const scrollPos = window.scrollY;
 
-    // Header transparency toggle - contracts smoothly to 80% island only after moving past the hero section
-    const heroEl = document.getElementById("home");
-    const heroHeight = heroEl ? heroEl.offsetHeight : 650;
-    const triggerThreshold = Math.max(140, Math.min(320, heroHeight * 0.4));
+    // Header transparency toggle - immediately transitions to 80% island upon small scroll
+    const triggerThreshold = 20;
 
     if (scrollPos > triggerThreshold) {
       header.classList.add("scrolled");
