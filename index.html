@@ -142,6 +142,18 @@
   <!-- Mobile Drawer Overlay -->
   <div class="mobile-backdrop" id="mobileBackdrop"></div>
   <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+    <!-- Mobile Drawer Top Bar with Back Button -->
+    <div class="mobile-drawer-top">
+      <button type="button" class="mobile-drawer-back-btn" id="mobileDrawerBack" aria-label="Go back and close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Back</span>
+      </button>
+      <span class="mobile-drawer-logo">SLR INTERIORS</span>
+      <button type="button" class="mobile-drawer-close-btn" id="mobileDrawerClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
     <div class="mobile-nav-links">
       <a href="#home" style="--i: 1">Home</a>
       <a href="#about" style="--i: 2">About Us</a>
@@ -150,7 +162,7 @@
       <a href="#why-us" style="--i: 5">Why Choose Us</a>
       <a href="#process" style="--i: 6">Work Process</a>
       <a href="#areas" style="--i: 7">Service Areas</a>
-      <a href="#contact" style="--i: 8">Contact</a>
+      <a href="#quote-section" style="--i: 8">Contact &amp; Quote</a>
     </div>
     
     <div class="mobile-nav-footer">
@@ -908,10 +920,10 @@
           <div class="divider-brass"></div>
         </div>
 
-        <div class="areas-grid">
+        <div class="areas-wrapper">
           
-          <!-- Areas & Address Info -->
-          <div class="areas-info reveal">
+          <!-- Areas & Address Info (Centered, Map Removed) -->
+          <div class="areas-info-centered reveal">
             
             <div class="location-card">
               <h3 class="location-address-title">Our Business Address</h3>
@@ -933,7 +945,7 @@
               </div>
             </div>
 
-            <div>
+            <div class="areas-locations-box">
               <h4 class="areas-badges-title">Primary Service Locations</h4>
               <div class="areas-list">
                 <div class="area-item">
@@ -957,16 +969,6 @@
 
           </div>
 
-          <!-- Google Maps Embed -->
-          <div class="map-wrapper reveal reveal-delay-1">
-            <iframe 
-              src="https://maps.google.com/maps?q=Akkayyapalem%2C%2080%20Feet%20Road%2C%20Visakhapatnam%20530016&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-              title="SLR INTERIORS Location Map — Akkayyapalem, Visakhapatnam" 
-              loading="lazy" 
-              allowfullscreen>
-            </iframe>
-          </div>
-
         </div>
 
       </div>
@@ -986,74 +988,11 @@
           <div class="divider-brass"></div>
         </div>
 
-        <div class="contact-grid" id="contact">
+        <div class="quote-form-wrapper" id="contact">
           
-          <!-- Left Column: Business Details -->
-          <div class="contact-info-panel reveal">
-            <div>
-              <div class="contact-panel-header">
-                <span class="eyebrow">SLR INTERIORS</span>
-                <h3>Direct Contact</h3>
-                <p>We are available to answer your calls and WhatsApp messages for prompt consultation regarding your custom carpentry work.</p>
-              </div>
-
-              <div class="contact-channel-list">
-                
-                <!-- Phone 1 -->
-                <div class="contact-channel-item">
-                  <div class="contact-channel-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  </div>
-                  <div class="contact-channel-text">
-                    <h5>Primary Phone / WhatsApp</h5>
-                    <a href="tel:7569888527">7569888527</a>
-                  </div>
-                </div>
-
-                <!-- Phone 2 -->
-                <div class="contact-channel-item">
-                  <div class="contact-channel-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  </div>
-                  <div class="contact-channel-text">
-                    <h5>Secondary Phone</h5>
-                    <a href="tel:9703503520">9703503520</a>
-                  </div>
-                </div>
-
-                <!-- Address -->
-                <div class="contact-channel-item">
-                  <div class="contact-channel-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  </div>
-                  <div class="contact-channel-text">
-                    <h5>Workshop &amp; Office</h5>
-                    <p>Akkayyapalem, 80 Feet Road,<br>Visakhapatnam, Andhra Pradesh – 530016</p>
-                  </div>
-                </div>
-
-                <!-- Service Areas -->
-                <div class="contact-channel-item">
-                  <div class="contact-channel-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                  </div>
-                  <div class="contact-channel-text">
-                    <h5>Areas Served</h5>
-                    <p>Visakhapatnam, Vizianagaram, Srikakulam, Anakapalle</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="contact-panel-note">
-              <p>Prefer quick answers? You can tap the floating WhatsApp button anytime while browsing to chat directly with us.</p>
-            </div>
-          </div>
-
-          <!-- Right Column: Interactive Quotation Form -->
-          <div class="quote-form-container reveal reveal-delay-1">
-            <div class="form-header">
+          <!-- Interactive Quotation Form (Centered, Direct Contact Block Removed) -->
+          <div class="quote-form-container reveal">
+            <div class="form-header text-center">
               <h3>Request a Free Quotation</h3>
               <p>Fill out your details below. We'll format your inquiry so you can review and send it directly via WhatsApp.</p>
             </div>
@@ -1185,6 +1124,31 @@
        ========================================================================== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
+
+      <!-- Prominent Direct Phone Call Banner in Footer -->
+      <div class="footer-call-card reveal">
+        <div class="footer-call-left">
+          <div class="footer-call-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <div>
+            <span class="footer-call-badge">DIRECT PHONE &amp; WHATSAPP INQUIRY</span>
+            <h3 class="footer-call-heading">Ready to Discuss Your Woodwork &amp; Interior Project?</h3>
+            <p class="footer-call-desc">Call our carpentry specialists directly for estimates, measurements, or customized consultation.</p>
+          </div>
+        </div>
+        <div class="footer-call-actions">
+          <a href="tel:7569888527" class="footer-phone-btn">
+            <span class="footer-phone-tag">PRIMARY CALL / WHATSAPP</span>
+            <span class="footer-phone-num">7569888527</span>
+          </a>
+          <a href="tel:9703503520" class="footer-phone-btn footer-phone-alt">
+            <span class="footer-phone-tag">SECONDARY PHONE</span>
+            <span class="footer-phone-num">9703503520</span>
+          </a>
+        </div>
+      </div>
+
       <div class="footer-grid">
         
         <!-- Brand Info -->

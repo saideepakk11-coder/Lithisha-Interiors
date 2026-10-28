@@ -166,6 +166,8 @@ function initMobileNavigation() {
   const mobileDrawer = document.getElementById("mobileDrawer");
   const mobileBackdrop = document.getElementById("mobileBackdrop");
   const mobileLinks = document.querySelectorAll(".mobile-nav-links a");
+  const mobileDrawerBack = document.getElementById("mobileDrawerBack");
+  const mobileDrawerClose = document.getElementById("mobileDrawerClose");
 
   if (!mobileToggle || !mobileDrawer || !mobileBackdrop) return;
 
@@ -195,6 +197,8 @@ function initMobileNavigation() {
   });
 
   mobileBackdrop.addEventListener("click", closeDrawer);
+  if (mobileDrawerBack) mobileDrawerBack.addEventListener("click", closeDrawer);
+  if (mobileDrawerClose) mobileDrawerClose.addEventListener("click", closeDrawer);
 
   mobileLinks.forEach((link) => {
     link.addEventListener("click", closeDrawer);
