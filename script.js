@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initEmailIntegration();
   initFloatingBackToTop();
   initScrollAnimations();
+  initMobileTouchInteractions();
 });
 
 // Page Preloader (Smooth Minimal Architectural Reveal)
@@ -733,30 +734,65 @@ function initFloatingBackToTop() {
 // ==========================================================================
 
 function initScrollAnimations() {
+  const animatedTargets = document.querySelectorAll(
+    ".reveal, .service-card, .why-card, .process-card, .gallery-item, .area-item, .location-card, .footer-call-card, .about-highlight-card, .about-visual, .why-visual, .hero-ethos-item, .about-badge"
+  );
+  if (!animatedTargets.length) return;
+
   // If user prefers reduced motion, skip scroll reveal animations
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("active"));
+    animatedTargets.forEach((el) => el.classList.add("active"));
     return;
   }
 
-  const revealElements = document.querySelectorAll(".reveal");
-  if (!revealElements.length) return;
-
+  const isMobile = window.innerWidth <= 768;
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
+          entry.target.classList.add("in-view");
           obs.unobserve(entry.target);
         }
       });
     },
     {
       root: null,
-      threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px"
+      threshold: isMobile ? 0.05 : 0.1,
+      rootMargin: isMobile ? "0px 0px -15px 0px" : "0px 0px -35px 0px"
     }
   );
 
-  revealElements.forEach((el) => observer.observe(el));
+  animatedTargets.forEach((el) => {
+    if (!el.classList.contains("reveal")) {
+      el.classList.add("reveal");
+    }
+    observer.observe(el);
+  });
+}
+
+// ==========================================================================
+// 12. COMPREHENSIVE MOBILE TOUCH & ACTIVE HOVER INTERACTIONS
+// ==========================================================================
+
+function initMobileTouchInteractions() {
+  const touchTargets = document.querySelectorAll(
+    ".service-card, .why-card, .process-card, .gallery-item, .filter-btn, .area-item, .location-card, .btn, .service-quote-btn, .service-gallery-link, .footer-phone-btn, .footer-service-link, .about-highlight-card, .about-badge, .hero-ethos-item, .hero-contact-link, .radio-pill label, .floating-btn, .mobile-drawer-back-btn, .mobile-drawer-close-btn, .mobile-nav-links a"
+  );
+
+  touchTargets.forEach((target) => {
+    target.addEventListener("touchstart", function () {
+      this.classList.add("touch-hover");
+    }, { passive: true });
+
+    target.addEventListener("touchend", function () {
+      setTimeout(() => {
+        this.classList.remove("touch-hover");
+      }, 280);
+    }, { passive: true });
+
+    target.addEventListener("touchcancel", function () {
+      this.classList.remove("touch-hover");
+    }, { passive: true });
+  });
 }

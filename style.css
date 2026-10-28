@@ -328,7 +328,8 @@ ul, ol {
   transition: transform var(--transition-fast);
 }
 
-.btn:hover svg {
+.btn:hover svg,
+.btn.touch-hover svg {
   transform: translateX(3px);
 }
 
@@ -338,7 +339,8 @@ ul, ol {
   border: 1px solid var(--color-brass);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary.touch-hover {
   background-color: var(--color-brass-hover);
   border-color: var(--color-brass-hover);
   color: var(--color-white);
@@ -352,7 +354,8 @@ ul, ol {
   border: 1px solid var(--color-walnut);
 }
 
-.btn-walnut:hover {
+.btn-walnut:hover,
+.btn-walnut.touch-hover {
   background-color: var(--color-walnut-dark);
   border-color: var(--color-walnut-dark);
   color: var(--color-white);
@@ -366,7 +369,8 @@ ul, ol {
   border: 1px solid var(--color-walnut);
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline.touch-hover {
   background-color: var(--color-walnut);
   color: var(--color-white);
   transform: translateY(-2px);
@@ -378,7 +382,8 @@ ul, ol {
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-.btn-outline-white:hover {
+.btn-outline-white:hover,
+.btn-outline-white.touch-hover {
   background-color: var(--color-white);
   color: var(--color-walnut);
   border-color: var(--color-white);
@@ -397,7 +402,8 @@ ul, ol {
   border: 1px solid #25D366;
 }
 
-.btn-whatsapp:hover {
+.btn-whatsapp:hover,
+.btn-whatsapp.touch-hover {
   background-color: #1EBE5D;
   border-color: #1EBE5D;
   color: #FFFFFF;
@@ -432,7 +438,8 @@ ul, ol {
   pointer-events: none;
 }
 
-.btn-shine:hover::before {
+.btn-shine:hover::before,
+.btn-shine.touch-hover::before {
   left: 180%;
   transition: left 0.85s ease-in-out;
 }
@@ -677,6 +684,7 @@ ul, ol {
 }
 
 .mobile-drawer-back-btn:hover,
+.mobile-drawer-back-btn.touch-hover,
 .mobile-drawer-back-btn:active {
   background-color: var(--color-brass);
   color: var(--color-white);
@@ -707,6 +715,7 @@ ul, ol {
 }
 
 .mobile-drawer-close-btn:hover,
+.mobile-drawer-close-btn.touch-hover,
 .mobile-drawer-close-btn:active {
   background-color: var(--color-walnut);
   color: var(--color-white);
@@ -759,9 +768,11 @@ ul, ol {
   transform: translateX(0);
 }
 
-.mobile-nav-links a:hover {
+.mobile-nav-links a:hover,
+.mobile-nav-links a.touch-hover,
+.mobile-nav-links a:active {
   color: var(--color-brass);
-  padding-left: 8px;
+  padding-left: 10px;
 }
 
 .mobile-nav-footer {
@@ -950,12 +961,25 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.hero-ethos-item:hover,
+.hero-ethos-item.touch-hover {
+  transform: translateX(3px);
+  color: var(--color-white);
 }
 
 .hero-ethos-item svg {
   width: 14px;
   height: 14px;
   color: var(--color-brass);
+  transition: transform 0.25s ease;
+}
+
+.hero-ethos-item:hover svg,
+.hero-ethos-item.touch-hover svg {
+  transform: scale(1.2);
 }
 
 .hero-actions {
@@ -979,17 +1003,29 @@ ul, ol {
   gap: 0.5rem;
   font-size: 0.88rem;
   color: rgba(255, 255, 255, 0.9);
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.hero-contact-link:hover {
+.hero-contact-link:hover,
+.hero-contact-link.touch-hover {
   color: var(--color-brass);
+  transform: translateY(-2px);
+}
+
+.hero-contact-link:active {
+  transform: scale(0.96);
 }
 
 .hero-contact-link svg {
   width: 18px;
   height: 18px;
   color: var(--color-brass);
+  transition: transform 0.25s ease;
+}
+
+.hero-contact-link:hover svg,
+.hero-contact-link.touch-hover svg {
+  transform: scale(1.15);
 }
 
 /* Scroll Down Indicator */
@@ -1084,9 +1120,11 @@ ul, ol {
   transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.about-highlight-card:hover {
+.about-highlight-card:hover,
+.about-highlight-card.touch-hover {
   transform: translateX(6px);
   box-shadow: var(--shadow-md);
+  border-left-color: var(--color-brass-hover);
 }
 
 .about-highlight-icon {
@@ -1099,6 +1137,14 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.about-highlight-card:hover .about-highlight-icon,
+.about-highlight-card.touch-hover .about-highlight-icon {
+  background-color: var(--color-brass);
+  color: var(--color-white);
+  transform: rotate(5deg) scale(1.05);
 }
 
 .about-highlight-icon svg {
@@ -1216,7 +1262,8 @@ ul, ol {
   flex-direction: column;
 }
 
-.service-card:hover {
+.service-card:hover,
+.service-card.touch-hover {
   transform: translateY(-8px);
   box-shadow: 0 16px 36px rgba(73, 54, 43, 0.12);
   border-color: var(--color-brass);
@@ -1236,7 +1283,8 @@ ul, ol {
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-card:hover .service-image-box img {
+.service-card:hover .service-image-box img,
+.service-card.touch-hover .service-image-box img {
   transform: scale(1.05);
 }
 
@@ -1253,6 +1301,13 @@ ul, ol {
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
   border: 1px solid rgba(178, 138, 85, 0.4);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.service-card:hover .service-num,
+.service-card.touch-hover .service-num {
+  background-color: var(--color-brass);
+  color: var(--color-white);
 }
 
 .service-body {
@@ -1309,12 +1364,14 @@ ul, ol {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-quote-btn:hover {
+.service-quote-btn:hover,
+.service-quote-btn.touch-hover {
   color: var(--color-walnut);
   gap: 0.85rem;
 }
 
-.service-quote-btn:hover svg {
+.service-quote-btn:hover svg,
+.service-quote-btn.touch-hover svg {
   transform: translateX(4px);
 }
 
@@ -1333,7 +1390,8 @@ ul, ol {
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.service-gallery-link:hover {
+.service-gallery-link:hover,
+.service-gallery-link.touch-hover {
   color: var(--color-brass);
 }
 
@@ -1341,7 +1399,8 @@ ul, ol {
   transition: transform 0.25s ease;
 }
 
-.service-gallery-link:hover svg {
+.service-gallery-link:hover svg,
+.service-gallery-link.touch-hover svg {
   transform: translate(2px, -2px);
 }
 
@@ -1389,13 +1448,15 @@ ul, ol {
   transition: background-color 0.3s ease;
 }
 
-.why-card:hover {
+.why-card:hover,
+.why-card.touch-hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 32px rgba(73, 54, 43, 0.1);
   border-color: var(--color-brass);
 }
 
-.why-card:hover::before {
+.why-card:hover::before,
+.why-card.touch-hover::before {
   background-color: var(--color-brass);
 }
 
@@ -1409,11 +1470,25 @@ ul, ol {
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.why-card:hover .why-card-icon,
+.why-card.touch-hover .why-card-icon {
+  background-color: var(--color-brass);
+  color: var(--color-white);
+  transform: scale(1.08) rotate(4deg);
+}
+
+.why-card:hover .why-card-title,
+.why-card.touch-hover .why-card-title {
+  color: var(--color-brass-hover);
 }
 
 .why-card-icon svg {
   width: 22px;
   height: 22px;
+  transition: transform 0.25s ease;
 }
 
 .why-card-title {
@@ -1421,6 +1496,7 @@ ul, ol {
   font-size: 1.15rem;
   color: var(--color-walnut);
   margin-bottom: 0.6rem;
+  transition: color var(--transition-fast);
 }
 
 .why-card-desc {
@@ -1495,7 +1571,8 @@ ul, ol {
   flex-direction: column;
 }
 
-.process-card:hover {
+.process-card:hover,
+.process-card.touch-hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-brass);
@@ -1507,11 +1584,13 @@ ul, ol {
   line-height: 1;
   color: var(--color-beige);
   margin-bottom: 1rem;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.process-card:hover .process-num {
+.process-card:hover .process-num,
+.process-card.touch-hover .process-num {
   color: var(--color-brass);
+  transform: scale(1.08);
 }
 
 .process-step-title {
@@ -1559,7 +1638,8 @@ ul, ol {
   outline: none;
 }
 
-.filter-btn:hover {
+.filter-btn:hover,
+.filter-btn.touch-hover {
   border-color: var(--color-brass);
   color: var(--color-walnut);
   transform: translateY(-2px);
@@ -1601,7 +1681,8 @@ ul, ol {
   display: none;
 }
 
-.gallery-item:hover {
+.gallery-item:hover,
+.gallery-item.touch-hover {
   transform: translateY(-7px);
   box-shadow: 0 18px 40px rgba(41, 30, 24, 0.16);
   border-color: var(--color-brass);
@@ -1618,7 +1699,8 @@ ul, ol {
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gallery-item:hover img {
+.gallery-item:hover img,
+.gallery-item.touch-hover img {
   transform: scale(1.08);
 }
 
@@ -1662,6 +1744,7 @@ ul, ol {
 }
 
 .gallery-item:hover .gallery-overlay,
+.gallery-item.touch-hover .gallery-overlay,
 .gallery-item:focus-visible .gallery-overlay {
   opacity: 1;
 }
@@ -1829,6 +1912,14 @@ ul, ol {
   border: 1px solid var(--color-border);
   box-shadow: 0 6px 20px rgba(41, 30, 24, 0.05);
   text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.location-card:hover,
+.location-card.touch-hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(41, 30, 24, 0.08);
+  border-color: var(--color-brass);
 }
 
 .location-address-title {
@@ -1888,11 +1979,12 @@ ul, ol {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--color-charcoal);
-  transition: border-color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
   text-align: center;
 }
 
-.area-item:hover {
+.area-item:hover,
+.area-item.touch-hover {
   border-color: var(--color-brass);
   background-color: var(--color-white);
   transform: translateY(-3px);
@@ -1904,6 +1996,12 @@ ul, ol {
   height: 18px;
   color: var(--color-brass);
   flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.area-item:hover svg,
+.area-item.touch-hover svg {
+  transform: scale(1.2);
 }
 
 /* ==========================================================================
@@ -2083,6 +2181,18 @@ textarea.form-control {
   word-break: break-word;
 }
 
+.radio-pill label:hover,
+.radio-pill label.touch-hover {
+  border-color: var(--color-brass);
+  background-color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(41, 30, 24, 0.06);
+}
+
+.radio-pill label:active {
+  transform: scale(0.97);
+}
+
 .radio-pill input[type="radio"]:checked + label {
   background-color: var(--color-brass);
   color: var(--color-white);
@@ -2172,6 +2282,13 @@ textarea.form-control {
   justify-content: space-between;
   gap: 2rem;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.footer-call-card:hover,
+.footer-call-card.touch-hover {
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+  border-color: rgba(216, 198, 176, 0.55);
 }
 
 .footer-call-left {
@@ -2235,7 +2352,8 @@ textarea.form-control {
   text-align: left;
 }
 
-.footer-phone-btn:hover {
+.footer-phone-btn:hover,
+.footer-phone-btn.touch-hover {
   background-color: var(--color-brass-hover);
   border-color: var(--color-brass-hover);
   transform: translateY(-3px);
@@ -2248,7 +2366,8 @@ textarea.form-control {
   border: 1px solid rgba(216, 198, 176, 0.5);
 }
 
-.footer-phone-alt:hover {
+.footer-phone-alt:hover,
+.footer-phone-alt.touch-hover {
   background-color: var(--color-white);
   color: var(--color-walnut);
   border-color: var(--color-white);
@@ -2316,7 +2435,8 @@ textarea.form-control {
   display: inline-block;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-links a.touch-hover {
   color: var(--color-brass);
   transform: translateX(4px);
 }
@@ -2330,11 +2450,14 @@ textarea.form-control {
 .footer-services-list a {
   font-size: 0.85rem;
   color: rgba(247, 244, 238, 0.7);
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
 }
 
-.footer-services-list a:hover {
+.footer-services-list a:hover,
+.footer-services-list a.touch-hover {
   color: var(--color-brass);
+  transform: translateX(4px);
 }
 
 .footer-contact-list {
@@ -2410,7 +2533,8 @@ textarea.form-control {
   height: 24px;
 }
 
-.floating-btn:hover {
+.floating-btn:hover,
+.floating-btn.touch-hover {
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
@@ -2452,7 +2576,8 @@ textarea.form-control {
   transform: scale(1);
 }
 
-.floating-back-to-top:hover {
+.floating-back-to-top:hover,
+.floating-back-to-top.touch-hover {
   background-color: var(--color-brass);
 }
 
@@ -2677,11 +2802,89 @@ textarea.form-control {
     font-size: 0.8rem;
   }
 
-  /* Comprehensive Responsive Card & Control Touch Animations */
+  /* ==========================================================================
+     MOBILE-FIRST ENTRANCE REVEALS & STAGGERED MOTION
+     ========================================================================== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered entrance feel on mobile cards */
+  .services-grid > .service-card.reveal:nth-child(even),
+  .process-steps > .process-card.reveal:nth-child(even),
+  .why-features > .why-card.reveal:nth-child(even),
+  .gallery-grid > .gallery-item.reveal:nth-child(even),
+  .areas-list > .area-item.reveal:nth-child(even) {
+    transition-delay: 0.08s;
+  }
+
+  /* ==========================================================================
+     COMPREHENSIVE MOBILE TOUCH-HOVER & TACTILE ACTIVE MICRO-INTERACTIONS
+     ========================================================================== */
+  .service-card {
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.28s ease;
+  }
+
+  .service-card.touch-hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(73, 54, 43, 0.14);
+    border-color: var(--color-brass);
+  }
+
+  .service-card.touch-hover .service-image-box img {
+    transform: scale(1.06);
+  }
+
+  .service-card.touch-hover .service-num {
+    background-color: var(--color-brass);
+    color: var(--color-white);
+  }
+
+  .service-card.touch-hover .service-quote-btn {
+    color: var(--color-brass-hover);
+  }
+
+  .service-card.touch-hover .service-quote-btn svg {
+    transform: translateX(4px);
+  }
+
   .service-card:active {
-    transform: scale(0.985);
+    transform: scale(0.982);
     border-color: var(--color-brass);
     transition: transform 0.12s ease;
+  }
+
+  .why-card {
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.28s ease;
+  }
+
+  .why-card.touch-hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 28px rgba(73, 54, 43, 0.12);
+    border-color: var(--color-brass);
+  }
+
+  .why-card.touch-hover::before {
+    background-color: var(--color-brass);
+  }
+
+  .why-card.touch-hover .why-card-icon {
+    background-color: var(--color-brass);
+    color: var(--color-white);
+    transform: scale(1.08) rotate(4deg);
   }
 
   .why-card:active {
@@ -2690,10 +2893,47 @@ textarea.form-control {
     transition: transform 0.12s ease;
   }
 
+  .process-card {
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.28s ease;
+  }
+
+  .process-card.touch-hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-brass);
+  }
+
+  .process-card.touch-hover .process-num {
+    color: var(--color-brass);
+    transform: scale(1.08);
+  }
+
   .process-card:active {
     transform: scale(0.98);
     border-color: var(--color-brass);
     transition: transform 0.12s ease;
+  }
+
+  .gallery-item {
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.28s ease;
+  }
+
+  .gallery-item.touch-hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 16px 36px rgba(41, 30, 24, 0.18);
+    border-color: var(--color-brass);
+  }
+
+  .gallery-item.touch-hover img {
+    transform: scale(1.08);
+  }
+
+  .gallery-item.touch-hover .gallery-overlay {
+    opacity: 1;
   }
 
   .gallery-item:active {
@@ -2701,14 +2941,53 @@ textarea.form-control {
     transition: transform 0.12s ease;
   }
 
+  .filter-btn {
+    transition: transform 0.18s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .filter-btn.touch-hover {
+    border-color: var(--color-brass);
+    color: var(--color-brass);
+  }
+
   .filter-btn:active {
-    transform: scale(0.95);
+    transform: scale(0.94);
     transition: transform 0.1s ease;
+  }
+
+  .location-card {
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.28s ease;
+  }
+
+  .location-card.touch-hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(41, 30, 24, 0.08);
+    border-color: var(--color-brass);
   }
 
   .location-card:active {
     transform: scale(0.985);
     transition: transform 0.12s ease;
+  }
+
+  .area-item {
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+  }
+
+  .area-item.touch-hover {
+    transform: translateY(-3px) scale(1.015);
+    background-color: var(--color-white);
+    border-color: var(--color-brass);
+    box-shadow: 0 6px 16px rgba(41, 30, 24, 0.08);
+  }
+
+  .area-item.touch-hover svg {
+    transform: scale(1.2);
   }
 
   .area-item:active {
@@ -2718,18 +2997,181 @@ textarea.form-control {
     transition: transform 0.12s ease;
   }
 
-  .footer-service-link:active {
-    color: var(--color-brass);
-    transform: translateX(4px);
+  .about-highlight-card {
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.28s ease;
   }
 
-  .btn:active {
-    transform: scale(0.97);
+  .about-highlight-card.touch-hover {
+    transform: translateX(6px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--color-brass-hover);
+  }
+
+  .about-highlight-card.touch-hover .about-highlight-icon {
+    background-color: var(--color-brass);
+    color: var(--color-white);
+    transform: rotate(5deg) scale(1.08);
+  }
+
+  .about-highlight-card:active {
+    transform: scale(0.98);
+    transition: transform 0.12s ease;
+  }
+
+  .about-badge {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .about-badge.touch-hover,
+  .about-badge:active {
+    transform: scale(1.02);
+    box-shadow: 0 10px 28px rgba(73, 54, 43, 0.16);
+  }
+
+  .footer-call-card.touch-hover {
+    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.32);
+    border-color: rgba(216, 198, 176, 0.65);
+  }
+
+  .footer-phone-btn {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.2s ease,
+                box-shadow 0.2s ease;
+  }
+
+  .footer-phone-btn.touch-hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 6px 18px rgba(178, 138, 85, 0.4);
+  }
+
+  .footer-phone-btn:active {
+    transform: scale(0.975);
     transition: transform 0.1s ease;
   }
 
-  .hero-feature-item:active {
+  .footer-service-link {
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .footer-service-link.touch-hover,
+  .footer-service-link:active {
+    color: var(--color-brass);
+    transform: translateX(5px);
+  }
+
+  .btn {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.2s ease,
+                box-shadow 0.2s ease,
+                color 0.2s ease;
+  }
+
+  .btn.touch-hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: scale(0.965);
+    transition: transform 0.1s ease;
+  }
+
+  .service-quote-btn {
+    transition: color 0.2s ease, gap 0.25s ease;
+  }
+
+  .service-quote-btn.touch-hover,
+  .service-quote-btn:active {
+    color: var(--color-walnut);
+    gap: 0.85rem;
+  }
+
+  .service-quote-btn.touch-hover svg,
+  .service-quote-btn:active svg {
+    transform: translateX(4px);
+  }
+
+  .service-gallery-link.touch-hover,
+  .service-gallery-link:active {
+    color: var(--color-brass);
+  }
+
+  .service-gallery-link.touch-hover svg,
+  .service-gallery-link:active svg {
+    transform: translate(2px, -2px);
+  }
+
+  .hero-ethos-item.touch-hover,
+  .hero-ethos-item:active {
+    transform: translateX(4px);
+    color: var(--color-white);
+  }
+
+  .hero-contact-link.touch-hover,
+  .hero-contact-link:active {
+    color: var(--color-brass);
+    transform: translateY(-2px);
+  }
+
+  .radio-pill label.touch-hover {
+    border-color: var(--color-brass);
+    background-color: var(--color-white);
+    transform: translateY(-2px);
+  }
+
+  .radio-pill label:active {
     transform: scale(0.97);
+  }
+
+  .mobile-drawer-back-btn.touch-hover,
+  .mobile-drawer-back-btn:active {
+    background-color: var(--color-brass);
+    color: var(--color-white);
+    border-color: var(--color-brass);
+    transform: translateX(-4px);
+  }
+
+  .mobile-drawer-close-btn.touch-hover,
+  .mobile-drawer-close-btn:active {
+    background-color: var(--color-walnut);
+    color: var(--color-white);
+    transform: rotate(90deg);
+  }
+
+  .mobile-nav-links a.touch-hover,
+  .mobile-nav-links a:active {
+    color: var(--color-brass);
+    padding-left: 10px;
+  }
+
+  .floating-btn {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s ease;
+  }
+
+  .floating-btn.touch-hover {
+    transform: scale(1.08);
+  }
+
+  .floating-btn:active {
+    transform: scale(0.92);
+  }
+
+  /* Gentle luxury floating breath animation for mobile WhatsApp button */
+  @keyframes mobileFloatBreath {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    }
+    50% {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 26px rgba(37, 211, 102, 0.55);
+    }
+  }
+
+  .floating-whatsapp {
+    animation: mobileFloatBreath 3s ease-in-out infinite;
   }
 
   .footer-grid {
@@ -2801,7 +3243,8 @@ textarea.form-control {
     display: none !important;
   }
 
-  .hero-bg-zoom {
+  .hero-bg-zoom,
+  .floating-whatsapp {
     animation: none !important;
     transform: none !important;
   }
