@@ -1,5 +1,5 @@
 /**
- * SLR INTERIORS — Main Client-Side JavaScript
+ * Lithisha Interiors — Main Client-Side JavaScript
  * Carpentry & Custom Interior Design | Visakhapatnam, Andhra Pradesh
  * Handles: Navigation, Service Selection, Gallery Filter & Lightbox, Form Validation,
  * WhatsApp Pre-filled Inquiries, Phone Integration, and Scroll Interactions.
@@ -10,7 +10,7 @@
 // ==========================================================================
 
 /**
- * Replaceable image system: Update paths here as actual SLR INTERIORS project
+ * Replaceable image system: Update paths here as actual Lithisha Interiors project
  * photographs become available. All image paths are centralized here for easy maintenance.
  */
 const siteImages = {
@@ -651,7 +651,7 @@ function initQuotationForm() {
     const serviceTitle = serviceSelect.options[serviceSelect.selectedIndex].text;
 
     // Generate WhatsApp Pre-filled message
-    let whatsappText = `Hello SLR INTERIORS, I would like to request a quotation.\n\n` +
+    let whatsappText = `Hello Lithisha Interiors, I would like to request a quotation.\n\n` +
       `*Name:* ${nameVal}\n` +
       `*Phone:* ${cleanPhone}\n`;
 
@@ -671,7 +671,7 @@ function initQuotationForm() {
     // Display helpful status banner
     if (formStatusAlert) {
       formStatusAlert.className = "form-status-alert success";
-      formStatusAlert.innerHTML = `<strong>Connecting to WhatsApp...</strong> Your inquiry details have been formatted. Opening WhatsApp in a new tab so you can review and tap Send to contact SLR INTERIORS directly.`;
+      formStatusAlert.innerHTML = `<strong>Connecting to WhatsApp...</strong> Your inquiry details have been formatted. Opening WhatsApp in a new tab so you can review and tap Send to contact Lithisha Interiors directly.`;
     }
 
     // Open WhatsApp
@@ -694,7 +694,7 @@ function initEmailIntegration() {
     emailBox.style.display = "block";
     const emailLink = document.getElementById("businessEmailLink");
     if (emailLink) {
-      emailLink.href = `mailto:${BUSINESS_EMAIL}?subject=Interior%20Design%20Quotation%20Inquiry%20-%20SLR%20INTERIORS`;
+      emailLink.href = `mailto:${BUSINESS_EMAIL}?subject=Interior%20Design%20Quotation%20Inquiry%20-%20Lithisha%20Interiors`;
       emailLink.textContent = BUSINESS_EMAIL;
     }
   } else {

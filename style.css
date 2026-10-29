@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SLR INTERIORS — STYLESHEET
+   LITHISHA INTERIORS — STYLESHEET
    Carpentry & Custom Interior Design | Visakhapatnam, Andhra Pradesh
    Design System: Warm Editorial, Architectural, Premium Craftsmanship
    ========================================================================== */
@@ -508,7 +508,7 @@ ul, ol {
 
 .brand-name {
   font-family: var(--font-heading);
-  font-size: 1.55rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--color-white);
@@ -1409,7 +1409,7 @@ ul, ol {
 }
 
 /* ==========================================================================
-   WHY CHOOSE SLR INTERIORS SECTION
+   WHY CHOOSE LITHISHA INTERIORS SECTION
    ========================================================================== */
 .why-grid {
   display: grid;
@@ -2675,7 +2675,7 @@ textarea.form-control {
   }
 
   .site-header.scrolled .brand-name {
-    font-size: 1.25rem;
+    font-size: clamp(0.95rem, 3.8vw, 1.25rem);
   }
 
   .site-header.scrolled .brand-tagline {

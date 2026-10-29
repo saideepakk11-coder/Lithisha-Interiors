@@ -1,6 +1,6 @@
-# robots.txt for SLR INTERIORS
+# robots.txt for Lithisha Interiors
 User-agent: *
 Allow: /
 
 # Sitemap URL (Update domain once finalized)
-Sitemap: https://slrinteriors.com/sitemap.xml
+Sitemap: https://lithishainteriors.com/sitemap.xml
