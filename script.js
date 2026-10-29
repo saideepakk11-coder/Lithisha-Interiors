@@ -66,9 +66,8 @@ const siteImages = {
 };
 
 // Business Contact Constants
-const WHATSAPP_PHONE_NUMBER = "917569888527"; // Primary WhatsApp (India format: 91 + 10 digits)
-const PRIMARY_PHONE_DISPLAY = "7569888527";
-const SECONDARY_PHONE_DISPLAY = "9703503520";
+const WHATSAPP_PHONE_NUMBER = "917569888527"; // Primary WhatsApp: 7569888527
+const CONTACT_PHONE_NUMBER = "9703503520";   // Direct Phone Contact: 9703503520
 const BUSINESS_ADDRESS = "Akkayyapalem, 80 Feet Road, Visakhapatnam, Andhra Pradesh – 530016";
 
 // Configurable business email (currently empty; no email provided)
@@ -645,12 +644,8 @@ function initQuotationForm() {
       isValid = false;
     }
 
-    // Validate Project Description
-    const descVal = projectDescInput.value.trim();
-    if (descVal.length < 5) {
-      showError(projectDescInput, "error-desc", "Please provide a brief description of your project (e.g., room size, preferred wood finish, timeline).");
-      isValid = false;
-    }
+    // Project Description (Optional)
+    const descVal = projectDescInput ? projectDescInput.value.trim() : "";
 
     // Preferred contact method
     const contactMethodInput = document.querySelector('input[name="contact_method"]:checked');
@@ -679,9 +674,15 @@ function initQuotationForm() {
 
     whatsappText += `*Service:* ${serviceTitle}\n` +
       `*Location:* ${locationVal}\n` +
-      `*Preferred Contact Method:* ${contactMethod}\n` +
-      `*Project Details:* ${descVal}\n\n` +
-      `Please contact me to discuss my requirements.`;
+      `*Preferred Contact Method:* ${contactMethod}\n`;
+
+    if (descVal) {
+      whatsappText += `*Project Details:* ${descVal}\n\n`;
+    } else {
+      whatsappText += `\n`;
+    }
+
+    whatsappText += `Please contact me to discuss my requirements.`;
 
     const encodedMessage = encodeURIComponent(whatsappText);
     const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodedMessage}`;
