@@ -43,7 +43,25 @@ const siteImages = {
     { src: "./assets/images/gallery-living-2.jpg", category: "living-room", title: "Living Room Showcase Cabinet", desc: "Warm ambient backlit shelving with concealed bottom storage" },
     { src: "./assets/images/gallery-storage-2.jpg", category: "storage", title: "Custom Entryway Shoe Cabinet", desc: "Ventilated wooden slatted doors with seat bench" },
     { src: "./assets/images/gallery-other-1.jpg", category: "other", title: "Fluted Architectural Wall Paneling", desc: "Precision wooden cladding for residential feature walls" },
-    { src: "./assets/images/gallery-other-2.jpg", category: "other", title: "Complete Flat Cupboard Works", desc: "Turnkey apartment interior woodwork installation" }
+    { src: "./assets/images/gallery-other-2.jpg", category: "other", title: "Complete Flat Cupboard Works", desc: "Turnkey apartment interior woodwork installation" },
+    { src: "./assets/images/gallery-kitchen-3.jpg", category: "kitchen", title: "Open Concept Kitchen & Breakfast Bar", desc: "U-shaped modular kitchen with fluted breakfast bar and recessed ceiling cove lights" },
+    { src: "./assets/images/gallery-kitchen-4.jpg", category: "kitchen", title: "Rose Gloss & Fluted Glass Kitchen", desc: "L-shaped acrylic kitchen with under-cabinet profile lighting and black granite counter" },
+    { src: "./assets/images/gallery-kitchen-5.jpg", category: "kitchen", title: "Contemporary Sage Green Kitchen", desc: "Seamless handleless acrylic cabinetry with glass loft display and farmhouse sink" },
+    { src: "./assets/images/gallery-kitchen-6.jpg", category: "kitchen", title: "Dual-Tone Acrylic Straight Kitchen", desc: "Gloss white wall units and grey bottom drawers with integrated appliances" },
+    { src: "./assets/images/gallery-kitchen-7.jpg", category: "kitchen", title: "Fluted Waterfall Island Kitchen", desc: "Architectural kitchen with waterfall breakfast counter and illuminated open showcase shelving" },
+    { src: "./assets/images/gallery-kitchen-8.jpg", category: "kitchen", title: "Glass Crockery & Modular Kitchen", desc: "Extensive full-wall kitchen cabinetry with glass crockery storage and marbled tiles" },
+    { src: "./assets/images/gallery-kitchen-9.jpg", category: "kitchen", title: "Curved Wooden Arch Breakfast Counter", desc: "Custom curved wood slat archway with pendant lighting and marble-finish breakfast island" },
+    { src: "./assets/images/gallery-kitchen-10.jpg", category: "kitchen", title: "Curved Corner Luxury Kitchen", desc: "Full-height modular kitchen featuring illuminated curved open shelves and fluted glass lofts" },
+    { src: "./assets/images/gallery-bedroom-3.jpg", category: "bedroom", title: "Sliding Wardrobe with Vanity Console", desc: "Dual-panel modern sliding wardrobe with overhead loft storage and integrated LED mirror vanity" },
+    { src: "./assets/images/gallery-bedroom-4.jpg", category: "bedroom", title: "Arched Backlit Dressing Vanity", desc: "Custom asymmetric arched mirror with fluted wooden paneling and floating drawer console" },
+    { src: "./assets/images/gallery-bedroom-5.jpg", category: "bedroom", title: "Luxury Bedroom Dressing Station", desc: "Semi-circular backlit mirror set against wooden fluted wall paneling and cosmetic shelving" },
+    { src: "./assets/images/gallery-living-3.jpg", category: "living-room", title: "Fluted Wood Slat TV Entertainment Console", desc: "Backlit floating TV unit with vertical wooden louvers and tall glass-door display cabinet" },
+    { src: "./assets/images/gallery-living-4.jpg", category: "living-room", title: "Marble Slab & Wood Slat TV Wall", desc: "Calacatta marble feature paneling paired with warm fluted wood and ambient LED cove lighting" },
+    { src: "./assets/images/gallery-storage-3.jpg", category: "storage", title: "Entryway Foyer Display & Partition", desc: "Floor-to-ceiling wooden divider unit with backlit niches, open shelving, and planter base" },
+    { src: "./assets/images/gallery-storage-4.jpg", category: "storage", title: "Capsule Mirror Foyer Console Unit", desc: "Full-length pill-shaped illuminated mirror flanked by fluted wall panels and floating console" },
+    { src: "./assets/images/gallery-other-3.jpg", category: "other", title: "Marble Backdrop Floating Pooja Mandir", desc: "Divine prayer unit featuring marble wall cladding, floating wooden ledges, and bottom drawers" },
+    { src: "./assets/images/gallery-other-4.jpg", category: "other", title: "Traditional Wooden Rafter Pooja Mandir", desc: "Ceiling-height wooden rafters with hanging lamps, backlit mandala motif, and marble altar" },
+    { src: "./assets/images/gallery-other-5.jpg", category: "other", title: "Custom Archway & Living Room Partition", desc: "Authentic crafted wooden archway and display cubes dividing hallway and living areas" }
   ]
 };
 

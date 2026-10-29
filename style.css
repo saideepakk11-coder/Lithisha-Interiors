@@ -478,10 +478,11 @@ ul, ol {
   width: 100%;
 }
 
-/* Scrolled: 80% width centered floating island with rounded pill corners */
+/* Scrolled: 88% width centered floating island with rounded pill corners */
 .site-header.scrolled {
   top: 10px;
-  width: min(84%, 1180px);
+  width: min(88%, 1240px);
+  min-height: 64px;
   height: 64px;
   border-radius: 50px;
   background-color: rgba(247, 244, 238, 0.96);
@@ -489,7 +490,13 @@ ul, ol {
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 10px 30px rgba(41, 30, 24, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(178, 138, 85, 0.35);
-  padding: 0 clamp(1.25rem, 2.5vw, 2.2rem);
+  padding: 0 clamp(1.25rem, 2vw, 2.2rem);
+}
+
+.site-header.scrolled .nav-container {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 100%;
 }
 
 .nav-container {
@@ -503,52 +510,59 @@ ul, ol {
 .brand {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   z-index: 1002;
 }
 
 .brand-name {
   font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--color-white);
   line-height: 1.1;
+  white-space: nowrap;
   transition: color var(--transition-fast), font-size var(--transition-fast);
 }
 
 .site-header.scrolled .brand-name {
   color: var(--color-walnut);
+  font-size: clamp(1.02rem, 1.35vw, 1.25rem);
 }
 
 .brand-tagline {
   font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-beige);
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 
 .site-header.scrolled .brand-tagline {
   color: var(--color-brass);
+  font-size: 0.56rem;
 }
 
 /* Desktop Nav Menu */
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2.2rem;
+  gap: clamp(0.75rem, 1.6vw, 1.8rem);
+  flex-wrap: nowrap;
 }
 
 .nav-link {
-  font-size: 0.84rem;
+  font-size: clamp(0.76rem, 0.85vw, 0.84rem);
   font-weight: 500;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: rgba(255, 255, 255, 0.88);
   position: relative;
-  padding: 0.4rem 0;
+  padding: 0.35rem 0;
   transition: color var(--transition-fast);
 }
 
@@ -586,7 +600,15 @@ ul, ol {
 .nav-cta {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  flex-shrink: 0;
+  gap: 0.75rem;
+}
+
+.nav-cta .btn {
+  white-space: nowrap;
+  padding: 0.48rem 1.05rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
 }
 
 /* Mobile Hamburger Toggle — Sleek & Compact */
@@ -2610,12 +2632,19 @@ textarea.form-control {
     --header-height: 74px;
   }
 
-  .nav-menu {
-    gap: 1.4rem;
+  .nav-menu,
+  .nav-cta .btn {
+    display: none;
   }
 
-  .nav-link {
-    font-size: 0.78rem;
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .site-header.scrolled {
+    width: min(90%, 640px);
+    height: 56px;
+    padding: 0 1.25rem;
   }
 
   .about-grid,
